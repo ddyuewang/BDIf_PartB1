@@ -20,3 +20,10 @@ These may also be useful commands:
   module list
   
   module avail
+
+Comment: there are 5 mistakes:
+1. the main function within mpi.c doesnt have an return value
+2. the makefile doesnt have indent
+3. the formula should be divided by  4/(1+x*x) instead of x*x*x
+4. the makefile should have source of mpi.c
+5. if (myid = 0) should be myid == 0

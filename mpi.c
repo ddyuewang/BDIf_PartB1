@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "mpi.h"
 
-int main(int argc, char *argv[]) {
+int main(int argc, char *argv[]) { // input format char ** argv instead of *argv[]
 
   int myid,nprocs;
 
@@ -17,7 +17,7 @@ int main(int argc, char *argv[]) {
   MPI_Comm_size(MPI_COMM_WORLD,&nprocs);
   MPI_Comm_rank(MPI_COMM_WORLD,&myid);
 
-  if (myid = 0) {
+  if (myid == 0) {
     mynpts = npts - (nprocs-1)*(npts/nprocs);
   } else {
     mynpts = npts/nprocs;
@@ -31,7 +31,7 @@ int main(int argc, char *argv[]) {
 
   for (i=0; i<mynpts; i++) {
     x = (double) rand()/RAND_MAX*(xmax-xmin) + xmin;
-    mysum += 4.0/(1.0 + x*x*x);
+    mysum += 4.0/(1.0 + x*x); // it should be x*x in stead of x*x*x
   }
 
   MPI_Reduce(&mysum,&sum,1,MPI_DOUBLE,MPI_SUM,0,MPI_COMM_WORLD);
@@ -42,4 +42,5 @@ int main(int argc, char *argv[]) {
   }
 
   MPI_Finalize();
+  return 0; // return value 
 }

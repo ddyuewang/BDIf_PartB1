@@ -1,0 +1,10 @@
+>>>> PBS Master compute node is: compute-0-57.local
+
+>>>> PBS Assigned these nodes to your job: 
+
+compute-0-57.ib
+compute-0-57.ib
+compute-0-57.ib
+compute-0-57.ib
+
+8 total processes failed to start
